@@ -1,0 +1,11 @@
+export { default as Auth } from './Auth/Auth';
+export { default as Copyright } from './Auth/Copyright';
+export { default as Input } from './Auth/Input';
+export { default as HomePage } from './HomePage/HomePage';
+export { default as ResponsiveDrawer } from './ResponsiveDrawer/ResponsiveDrawer';
+export { default as AccountDetails } from './AccountDetails/AccountDetails';
+export { default as CourseForm } from './Courses/MyCourses/CourseForm/CourseForm';
+export { default as CourseCard } from './Courses/ShowCourses/CourseCard/CourseCard';
+export { default as ShowAllCourses } from './Courses/ShowAllCourses/ShowAllCourses';
+export { default as ShowCourses } from './Courses/ShowCourses/ShowCourses';
+export { default as MyCourses } from './Courses/MyCourses/MyCourses';
