@@ -9,3 +9,4 @@ export { default as CourseCard } from './Courses/ShowCourses/CourseCard/CourseCa
 export { default as ShowAllCourses } from './Courses/ShowAllCourses/ShowAllCourses';
 export { default as ShowCourses } from './Courses/ShowCourses/ShowCourses';
 export { default as MyCourses } from './Courses/MyCourses/MyCourses';
+export { default as AboutForm } from './AboutForm/AboutForm';

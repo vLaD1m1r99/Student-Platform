@@ -10,6 +10,14 @@ const courseSchema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+    immutable: true,
   },
+  updatedAt: { type: Date, default: Date.now },
+  reviews: [
+    {
+      rating: { type: Number, min: 1, max: 10 },
+      message: String,
+    },
+  ],
 });
 export default mongoose.model('Course', courseSchema);
