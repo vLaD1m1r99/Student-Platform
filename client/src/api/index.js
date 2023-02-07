@@ -1,7 +1,8 @@
 import axios from 'axios';
 //Our route
 const API = axios.create({
-  baseURL: 'https://mern-platform-server.onrender.com',
+  // baseURL: 'https://mern-platform-server.onrender.com',
+  baseURL: 'http://localhost:5000',
 });
 //Occurse before all the bellow requests
 //Google is result and custom is token
