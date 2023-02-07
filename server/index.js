@@ -15,6 +15,7 @@ app.use('/user', userRoutes);
 app.use('/courses', courseRoutes);
 
 const PORT = process.env.PORT || 5000;
+mongoose.set('strictQuery', true);
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
