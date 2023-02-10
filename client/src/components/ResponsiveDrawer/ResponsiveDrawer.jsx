@@ -76,7 +76,7 @@ const dispatch = useDispatch();
         ))}
       </List>
       <Divider />
-      <List>
+      {/* <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -87,7 +87,7 @@ const dispatch = useDispatch();
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </div>
   );
 
