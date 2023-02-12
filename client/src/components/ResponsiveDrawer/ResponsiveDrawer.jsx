@@ -4,8 +4,6 @@ import {AppBar, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButto
 import SchoolIcon from '@mui/icons-material/School';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountDetails from '../AccountDetails/AccountDetails';
 import ShowAllCourses from '../Courses/ShowAllCourses/ShowAllCourses';
@@ -32,21 +30,19 @@ const dispatch = useDispatch();
     navigate('/');
     setUser(null);
   };
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')).result);
+  
   useEffect(()=> {
      //Gets all Courses to the store
     dispatch(getCourses());
-    //Check if google or custom signIn
-    var token;
-    user?.token === undefined ? token = user.result : token = user?.token;
+    const token = JSON.parse(localStorage.getItem('profile')).token;
     //If token expired just logout
     //Ne radi
     if(token){
       const decodedToken = decode(token);
       if(decodedToken.exp *1000 < new Date().getTime()) logout();
-
     }
-    setUser(JSON.parse(localStorage.getItem('profile')))
+    setUser(JSON.parse(localStorage.getItem('profile')).result)
   }, [location, dispatch]);
 //Deo sa stranicama
   const[selectedPage, setSelectedPage] = useState(pages[0].page);// Startuje sa prvom stranom
@@ -114,8 +110,7 @@ const dispatch = useDispatch();
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            {user.userObject !== undefined ?   user.userObject.name 
-            : user.result.name}
+            {user.firstName} {user.lastName}
           </Typography>
           <Button variant='contained' color='secondary' sx={{ml: 'auto'}} onClick={logout}>Logout</Button>
         </Toolbar>

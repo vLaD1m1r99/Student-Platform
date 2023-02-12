@@ -8,6 +8,12 @@ const authSlice = createSlice({
       localStorage.setItem('profile', JSON.stringify(action.payload));
       state.authData = action.payload;
     },
+    updateUserInfo(state, action) {
+      var user = JSON.parse(localStorage.getItem('profile'));
+      user.result = action.payload;
+      localStorage.setItem('profile', JSON.stringify(user));
+      state.authData = user;
+    },
     logout(state) {
       localStorage.clear();
       state.authData = null;
@@ -21,6 +27,15 @@ export const signUp = (formData, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signUp(formData);
     dispatch(authActions.auth(data));
+    navigate('/userInfo');
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const updateUserInfo = (id, formData, navigate) => async (dispatch) => {
+  try {
+    const { data } = await api.updateUserInfo(id, formData);
+    dispatch(authActions.updateUserInfo(data));
     navigate('/userHomePage');
   } catch (error) {
     console.log(error.message);

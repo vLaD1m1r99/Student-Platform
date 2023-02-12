@@ -10,3 +10,5 @@ export { default as ShowAllCourses } from './Courses/ShowAllCourses/ShowAllCours
 export { default as ShowCourses } from './Courses/ShowCourses/ShowCourses';
 export { default as MyCourses } from './Courses/MyCourses/MyCourses';
 export { default as AboutForm } from './AboutForm/AboutForm';
+export { default as UserInfo } from './Auth/UserInfo/UserInfo';
+export { default as Admin } from './Admin/Admin';

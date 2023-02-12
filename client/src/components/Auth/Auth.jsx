@@ -8,13 +8,13 @@ import {
   Box,
   Typography,
   Container,
+  useTheme
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import {Input, Copyright} from '../';
-import { authActions, signIn, signUp } from '../../api/store/auth';
+import { signIn, signUp } from '../../api/store/auth';
 
 
 const Auth = () => {
@@ -25,6 +25,7 @@ const Auth = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    authType: 'Custom'
   };
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
@@ -32,9 +33,10 @@ const Auth = () => {
     const result = response?.credential;
     var userObject = jwt_decode(result);
     try {
-      dispatch(authActions.auth({result, userObject}
-      ));
-      navigate('/userHomePage');
+      // Iz nekog razloga ne mogu da napravim da radi setFromData
+      const googleFormData = {firstName: userObject.given_name, lastName: userObject.family_name, email: userObject.email, password: userObject.sub,confirmPassword: userObject.sub, authType: 'Google'};
+      // Ako ne postoji u signIn se automatski pravi novi korisnik
+      dispatch(signIn(googleFormData, navigate));
     } catch (error) {
       console.log(error);
     }

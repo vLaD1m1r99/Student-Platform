@@ -10,6 +10,8 @@ const Input = ({
   autoFocus,
   type,
   handleShowPassword,
+  multiline,
+  maxRows
 }) => {
   return (
     <Grid item xs={12} sm={half ? 6 : 12}>
@@ -22,6 +24,8 @@ const Input = ({
         label={label}
         autoFocus={autoFocus}
         type={type}
+        multiline={multiline}
+        maxRows={maxRows}
         InputProps={
           name === 'password'
             ? {
