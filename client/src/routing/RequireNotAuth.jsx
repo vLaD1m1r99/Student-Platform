@@ -1,14 +1,10 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 
-const RequireAuth = ({authRoles}) => {
+const RequireNotAuth = ({authRoles}) => {
     const location = useLocation();
     const user = JSON.parse(localStorage.getItem('profile'))
-    const authorized = authRoles.includes(user?.result?.role);
     return (
-        authorized
-            ? 
-            <Outlet />
-            : !user
+         !user
                 ? <Navigate to="/auth" state={{ from: location }} replace />
                 // If unauthorized go to dashboard
                 : <Navigate to="/userHomePage" state={{ from: location }} replace />
@@ -16,4 +12,4 @@ const RequireAuth = ({authRoles}) => {
     );
 }
 
-export default RequireAuth;
+export default RequireNotAuth;

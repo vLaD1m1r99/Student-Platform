@@ -21,7 +21,8 @@ const CourseCard = ({course, myCourse}) => {
     // This is new course data
 dispatch(updateCourse(course._id, {...courseData, hostName: course.hostName, hostId: course.hostId, createdAt: new Date().toISOString() }));
   }
-  return (<Card sx={{display: 'flex',
+  return (
+  <Card sx={{display: 'flex',
     position: 'relative',
     flexWrap: 'wrap',
     flexDirection: 'column',

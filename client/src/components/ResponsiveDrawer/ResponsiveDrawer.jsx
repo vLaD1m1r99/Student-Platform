@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect } from 'react';
 import {AppBar, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography, IconButton, Button} from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
@@ -45,11 +44,11 @@ const dispatch = useDispatch();
     setUser(JSON.parse(localStorage.getItem('profile')).result)
   }, [location, dispatch]);
 //Deo sa stranicama
-  const[selectedPage, setSelectedPage] = useState(pages[0].page);// Startuje sa prvom stranom
+  const[selectedPage, setSelectedPage] = useState(pages[2].page);// Startuje sa prvom stranom
 
 //Drawer deo
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };

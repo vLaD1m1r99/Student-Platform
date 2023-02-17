@@ -76,13 +76,14 @@ export const signUp = async (req, res) => {
 };
 export const updateUserInfo = async (req, res) => {
   const { id: _id } = req.params;
+  const date = Date.now;
   const userInfo = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send('No User with that id');
   }
   const updatedUserInfo = await User.findByIdAndUpdate(
     _id,
-    { ...userInfo, _id },
+    { ...userInfo, userInfoWizardDone: true, updatedAt: Date.now(), _id },
     {
       new: true,
     }

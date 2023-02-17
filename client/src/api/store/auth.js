@@ -27,7 +27,7 @@ export const signUp = (formData, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signUp(formData);
     dispatch(authActions.auth(data));
-    navigate('/userInfo');
+    navigate('/wizard');
   } catch (error) {
     console.log(error.message);
   }
@@ -45,7 +45,7 @@ export const signIn = (formData, navigate) => async (dispatch) => {
   try {
     const { data } = await api.signIn(formData);
     dispatch(authActions.auth(data));
-    navigate('/userHomePage');
+    navigate(data.result.userInfoWizardDone ? '/userHomePage' : '/wizard');
   } catch (error) {
     console.log(error);
   }

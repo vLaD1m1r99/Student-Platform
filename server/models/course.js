@@ -3,6 +3,7 @@ const courseSchema = mongoose.Schema({
   id: { type: String },
   hostId: { type: String, required: true },
   hostName: { type: String, required: true },
+  // host: { type: String, ref: User },
   courseName: { type: String, required: true },
   courseTags: [{ type: String, required: true }],
   // participantsId: [{ type: String, default: [] }],
