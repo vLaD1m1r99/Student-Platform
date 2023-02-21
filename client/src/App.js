@@ -24,9 +24,9 @@ const App = () => {
         {/* Public pages */}
         <Route path='/' index element={<HomePage />} />
         {/* Protected if loged in */}
-        <Route element={<RequireNotAuth />}>
-          <Route path='auth' element={<Auth />} />
-        </Route>
+        {/* <Route element={<RequireNotAuth />}> */}
+        <Route path='auth' element={<Auth />} />
+        {/* </Route> */}
         {/* Protected by authentication pages */}
         <Route element={<RequireAuth authRoles={['Admin', 'User']} />}>
           <Route path='userHomePage' element={<ResponsiveDrawer />} />

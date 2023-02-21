@@ -4,7 +4,7 @@ import {Box, TextField, Button, Typography, IconButton, Autocomplete} from '@mui
 import CloseIcon from '@mui/icons-material/Close';
 import { createCourse } from '../../../../api/store/courses';
 
-const CourseForm = ({user, closeForm}) => {
+const CourseForm = ({closeForm}) => {
 // Tags part
 const serbianFaculties = ['Elektronski fakultet','Masinski fakultet', 'Gradjevinski fakultet', 'Elektrotehnicki fakultet', 'Filozofski fakultet']
 
@@ -12,8 +12,7 @@ const serbianFaculties = ['Elektronski fakultet','Masinski fakultet', 'Gradjevin
   const dispatch = useDispatch();
   const handleSubmit = (e) =>{
     e.preventDefault();
-    dispatch(createCourse({...courseData, hostName: user.userObject !== undefined ?   user.userObject.name 
-            : user.result.name}));
+    dispatch(createCourse({...courseData}));
     closeForm(!closeForm);
   }
   return(<Box sx={{position: 'relative'}}>
@@ -64,8 +63,9 @@ const serbianFaculties = ['Elektronski fakultet','Masinski fakultet', 'Gradjevin
           options={serbianFaculties}
           getOptionLabel={(option) => option}
           getOptionDisabled={(options) => courseData.courseTags.length > 3 ? true : false}
-          onChange={(e)=> 
-            setCourseData({...courseData, ...courseData.courseTags.push(e.target.innerHTML) })
+          onChange={(e)=> {
+            setCourseData({...courseData, ...courseData.courseTags.push(e.target.innerHTML) });
+          }
            }
           renderInput={(params) => (
             <TextField {...params} label="School Tags" variant = 'standard' placeholder="More" />

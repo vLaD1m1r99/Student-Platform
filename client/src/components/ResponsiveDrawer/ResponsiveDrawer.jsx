@@ -20,8 +20,8 @@ const pages = [{name: 'Account', page: <AccountDetails/>, icon: <ManageAccountsI
 
 
 const ResponsiveDrawer = (props) => {
-//User deo
-const dispatch = useDispatch();
+  //User deo
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const logout = () => {
@@ -30,7 +30,7 @@ const dispatch = useDispatch();
     setUser(null);
   };
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')).result);
-  
+  // ovo treba promeniti novim routerom
   useEffect(()=> {
      //Gets all Courses to the store
     dispatch(getCourses());

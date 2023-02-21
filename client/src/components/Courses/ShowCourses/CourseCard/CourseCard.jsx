@@ -19,7 +19,7 @@ const CourseCard = ({course, myCourse}) => {
   }
   const updateMyCourse = ()=>{
     // This is new course data
-dispatch(updateCourse(course._id, {...courseData, hostName: course.hostName, hostId: course.hostId, createdAt: new Date().toISOString() }));
+dispatch(updateCourse(course._id, {...courseData, hostId: course.hostId, createdAt: new Date().toISOString() }));
   }
   return (
   <Card sx={{display: 'flex',
@@ -32,7 +32,7 @@ dispatch(updateCourse(course._id, {...courseData, hostName: course.hostName, hos
     }}>
       <Box m={3}
       sx={{display: 'flex', flexWrap: 'wrap'}}>
-        <Avatar sx={{width: 56, height: 56}} alt={course.hostName[0]}>{course.hostName[0]}</Avatar>
+        <Avatar sx={{width: 56, height: 56}} alt={course.host.firstName}>{course.host.photo}</Avatar>
         <Box sx={{
         display: 'flex', flexDirection:'column'
       }}>

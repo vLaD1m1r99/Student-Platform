@@ -5,14 +5,12 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import {ShowCourses, CourseForm} from '../..';
 
 const MyCourses = () => {
-  const user = JSON.parse(localStorage.getItem('profile'));
+  const user = JSON.parse(localStorage.getItem('profile')).result;
   const [openForm, setOpenForm] = useState(false);
-  //Ovo proverava da li je googleAuth
-  var userId = user.result._id;
-  if(user.result._id === undefined) userId = user.userObject.sub;
+  
   const {courses, isLoading} = useSelector(state => state.courses);
   //Filtrira samo moje kurseve
-  const myCourses = courses.filter((course)=> course.hostId === userId);
+  const myCourses = courses.filter((course)=> course.host._id === user._id);
   return(<>
   {/* If form should be active */}
    {!openForm ? (<>
@@ -28,7 +26,7 @@ const MyCourses = () => {
     </>
     )
          : (
-          <CourseForm user={user} closeForm={setOpenForm}/>
+          <CourseForm closeForm={setOpenForm}/>
         )}
         </>
     )

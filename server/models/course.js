@@ -1,9 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 const courseSchema = mongoose.Schema({
-  id: { type: String },
-  hostId: { type: String, required: true },
-  hostName: { type: String, required: true },
-  // host: { type: String, ref: User },
+  id: String,
   courseName: { type: String, required: true },
   courseTags: [{ type: String, required: true }],
   // participantsId: [{ type: String, default: [] }],
@@ -20,5 +17,6 @@ const courseSchema = mongoose.Schema({
       message: String,
     },
   ],
+  host: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 });
 export default mongoose.model('Course', courseSchema);

@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import Course from './course.js';
 const userSchema = mongoose.Schema({
   id: String,
   authType: { type: String, default: 'Custom', enum: ['Google', 'Custom'] },
@@ -34,7 +33,6 @@ const userSchema = mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
   about: { type: String, maxLength: 500, default: null },
   photo: { type: String, default: null },
-  courses: [{ type: String, ref: Course }],
   rating: { type: Number, min: 1, max: 10, default: null },
 });
 export default mongoose.model('User', userSchema);
