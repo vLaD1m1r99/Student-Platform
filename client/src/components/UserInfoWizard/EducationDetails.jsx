@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const EducationDetails = ({schoolName,schoolYear, about, handleChange, facebook, linkedIn, instagram}) => {
   return (
-    <React.Fragment>
+    <>
       <Typography variant="h6" gutterBottom>
         Why you?
       </Typography>
@@ -108,14 +108,8 @@ const EducationDetails = ({schoolName,schoolYear, about, handleChange, facebook,
           />
         </Grid>
         </Grid>
-        {/* <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
-          />
-        </Grid> */}
       </Grid>
-    </React.Fragment>
+    </>
   );
 }
 export default EducationDetails;

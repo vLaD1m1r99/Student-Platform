@@ -9,7 +9,7 @@ const PersonalInfo = ({firstName, lastName, phone, address, city, zip, photo, ha
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12} sx={{ display:'flex',alignItems:'center', justifyContent: 'center'}}>
-        <label htmlFor='photo' style={{borderRadius:'50%' }}>
+        <label htmlFor='photo' style={{borderRadius:'50%', cursor:'pointer' }}>
             {photo ?  <Avatar alt={`${firstName} ${lastName}`} src={photo} sx={{width:256, height:256}}/> : <Avatar sx={{width:200, height:200, htmlFor: 'photo'}}>
               {`${firstName} ${lastName}`}</Avatar>}
               </label>
